@@ -39,20 +39,27 @@ const login = async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // const token = jwt.sign(
-    //   { userId: user._id, email: user.email, isAdmin: user.isAdmin },
-    //   process.env.JWT_SECRET_KEY, // Secret key to sign the token
-    //   { expiresIn: '1h' } // Set the token expiry time
-    // );
+    console.log(process.env.JWT_SECRET_KEY);
+    const token = jwt.sign(
+      { userId: user._id, email: user.email, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET_KEY, // Secret key to sign the token
+      { expiresIn: '1h' } // Set the token expiry time
+    );
 
-    // res.json({ message: 'Login successful', token: token, userId: user._id });
+    console.log(token);
+
+    res.json({
+      message: 'Login successfully',
+      token: token,
+      userId: user._id,
+    });
+
+    // res.json({ token });
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };
-
-// app.post('/signup', async (req, res) => {
 
 module.exports = {
   signup,

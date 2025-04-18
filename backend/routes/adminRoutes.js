@@ -25,6 +25,7 @@ const isAdmin = (req, res, next) => {
 
 // GET /admin/users - Fetch all users
 router.get('/users', verifyToken, isAdmin, async (req, res) => {
+  // router.get('/users', async (req, res) => {
   try {
     const users = await User.find({}, { password: 0 }); // Exclude password field
     res.json(users);

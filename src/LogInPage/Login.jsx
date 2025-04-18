@@ -24,6 +24,9 @@ const LoginPage = () => {
       navigate('/admin');
       console.log('User ID:', res.data.userId);
 
+      const token = res.data.token;
+      localStorage.setItem('authToken', token);
+
       // You can store token or navigate to another page here
     } catch (error) {
       console.log(error);
@@ -46,7 +49,8 @@ const LoginPage = () => {
       );
 
       alert('Singup success!!!');
-      navigate('/login');
+      window.location.reload();
+      // navigate('/login');
       console.log('User ID:', response.data.userId);
     } catch (error) {
       if (error.response) {

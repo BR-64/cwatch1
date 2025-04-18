@@ -1,8 +1,8 @@
-// AdminDashboard.jsx
+// AdminProfile.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AdminDashboard = () => {
+const AdminProfile = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -10,12 +10,15 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/admin/users', {
-          headers: {
-            // Add authorization token if using JWT for authentication
-            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
-          },
-        });
+        const response = await axios.get(
+          'http://localhost:5000/api/admin/users',
+          {
+            headers: {
+              // Add authorization token if using JWT for authentication
+              Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+            },
+          }
+        );
         setUsers(response.data);
       } catch (error) {
         setError('Error fetching user data.');
@@ -30,7 +33,7 @@ const AdminDashboard = () => {
 
   return (
     <div className='container'>
-      <h1 className='text-3xl font-bold'>Admin Dashboard</h1>
+      <h1 className='text-3xl font-bold'>Admin Profile</h1>
       {loading ? (
         <p>Loading users...</p>
       ) : error ? (
@@ -63,4 +66,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default AdminProfile;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import LoginForm from './obsolete/Login';
 import sendLogin from './apiLogin';
-import LoginGPT from './LoginGPT';
+import LoginGPT from './obsolete/LoginGPT';
 import CaseReport from './obsolete/CaseReport';
 import RadioGroupExample from './obsolete/RadioGPT';
 // import MultiStepForm from './ReportPage/obsolete/MultiStepForm_o';
@@ -13,7 +13,8 @@ import ThaiAddressForm from './ReportPage/GPT/thaiad';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ThankYou from './Thankyou';
 import LoginPage from './LogInPage/Login';
-import AdminDashboard from './AdminPage/adminDashboard';
+import AdminProfile from './AdminPage/AdminProfile';
+import Navbar from './Navbar';
 
 function App() {
   const [Login, setLogin] = useState();
@@ -43,11 +44,12 @@ function App() {
     // </>
 
     <Router>
+      <Navbar />
       <Routes>
         <Route path='/' element={<MultiStepForm />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/thank-you' element={<ThankYou />} />
-        <Route path='/admin' element={<AdminDashboard />}></Route>
+        <Route path='/admin' element={<AdminProfile />}></Route>
       </Routes>
     </Router>
   );
