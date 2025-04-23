@@ -12,7 +12,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='bg-gray-800 p-4 text-white flex justify-between items-center shadow-md'>
+    <nav
+      id='reportNav'
+      className='bg-gray-800 p-4 text-white flex justify-between items-center shadow-md '>
       <div className='text-xl font-bold'>
         <Link to='/' className='hover:text-gray-300'>
           MyApp

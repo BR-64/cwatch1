@@ -29,6 +29,7 @@ const AdminProfile = () => {
     };
 
     fetchUsers();
+    console.log(users);
   }, []);
 
   return (

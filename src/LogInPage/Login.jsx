@@ -94,7 +94,7 @@ const LoginPage = () => {
           <div>
             <button
               onClick={handleLogin}
-              className='w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors'>
+              className='w-full  py-2 rounded-lg hover:bg-blue-700 transition-colors bg-green-500'>
               Sign In
             </button>
           </div>
@@ -108,8 +108,8 @@ const LoginPage = () => {
         </p> */}
         <button
           onClick={handleSignup}
-          className='w-full bg-red-600 text-white  hover:bg-red-700 transition-colors'>
-          sign up
+          className='w-full bg-red-600 hover:bg-red-700 transition-colors mt-2'>
+          Sign up
         </button>
       </div>
     </div>

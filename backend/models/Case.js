@@ -10,6 +10,7 @@ const formSchema = new mongoose.Schema(
     district: String,
     subdistrict: String,
     reporter: String,
+    file: Array,
   },
   { timestamps: true }
 );
