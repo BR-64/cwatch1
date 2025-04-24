@@ -17,6 +17,7 @@ import LoginPage from './LogInPage/Login';
 import AdminProfile from './AdminPage/AdminProfile';
 import Navbar from './Navbar';
 import AdminDashboardPage from './AdminPage/adminDashboard';
+import CaseDetails from './AdminPage/CaseDetails';
 
 function App() {
   const [Login, setLogin] = useState();
@@ -34,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className='container w-96'>
+    <div className='container'>
       <Router>
         <Navbar />
         <Routes>
@@ -43,6 +44,7 @@ function App() {
           <Route path='/thank-you' element={<ThankYou />} />
           {/* <Route path='/admin' element={<AdminProfile />}></Route> */}
           <Route path='/admin' element={<AdminDashboardPage />}></Route>
+          <Route path='/admin/case/:id' element={<CaseDetails />} />
         </Routes>
       </Router>
     </div>

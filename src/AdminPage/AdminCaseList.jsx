@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const AdminCaseList = () => {
   const [casesReport, setCases] = useState([]);
@@ -32,24 +33,6 @@ const AdminCaseList = () => {
 
   return (
     <div className='container'>
-      <h2>Case List section</h2>
-      <div className='overflow-x-auto mt-4'>
-        <table className='min-w-full bg-white border border-gray-200'>
-          <thead>
-            <tr>
-              <th className='px-4 py-2 border-b'>topic</th>
-              <th className='px-4 py-2 border-b'>province</th>
-            </tr>
-          </thead>
-        </table>
-        {/* {casesReport.map((caser) => (
-          <tr key={caser._id}>
-            <td className='px-4 py-2 border-b'>{caser.topic}</td>
-            <td className='px-4 py-2 border-b'>{caser.province}</td>
-          </tr>
-        ))} */}
-      </div>
-
       {loading ? (
         <p>Loading users...</p>
       ) : error ? (
@@ -72,13 +55,19 @@ const AdminCaseList = () => {
             <tbody>
               {casesReport.map((caser) => (
                 <tr key={caser._id}>
-                  <td className='px-4 py-2 border-b'>{caser.casenum}</td>
+                  {/* <td className='px-4 py-2 border-b'>
+                    <Link to={`case/${caser.casenum}`}>{caser.casenum}</Link>
+                  </td> */}
+                  <td className='px-4 py-2 border-b'>
+                    <Link to={`case/${caser._id}`}>{caser._id}</Link>
+                  </td>
                   <td className='px-4 py-2 border-b'>{caser.owner}</td>
                   <td className='px-4 py-2 border-b'>{caser.createdAt}</td>
                   <td className='px-4 py-2 border-b'>{caser.topic}</td>
                   <td className='px-4 py-2 border-b'>{caser.scope}</td>
                   <td className='px-4 py-2 border-b'>{caser.province}</td>
                   <td className='px-4 py-2 border-b'>{caser.status}</td>
+                  <td className='px-4 py-2 border-b'>{caser.publishstatus}</td>
                 </tr>
               ))}
             </tbody>

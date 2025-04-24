@@ -44,4 +44,16 @@ const caseList = async (req, res) => {
   }
 };
 
-module.exports = { submitCase, caseList };
+const caseDetail = async (req, res) => {
+  try {
+    console.log('single case data fetching');
+    console.log(req.params);
+    const caseD = await Case.findById(req.params.id);
+    res.json(caseD);
+  } catch (error) {
+    console.error('error');
+    res.status(500).json({ message: 'Failed to fetch case' });
+  }
+};
+
+module.exports = { submitCase, caseList, caseDetail };

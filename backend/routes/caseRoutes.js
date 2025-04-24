@@ -1,7 +1,11 @@
 const express = require('express');
 const multer = require('multer');
 const router = express.Router();
-const { submitCase, caseList } = require('../controllers/caseController');
+const {
+  submitCase,
+  caseList,
+  caseDetail,
+} = require('../controllers/caseController');
 
 // const caseSubmit = multer({ dest: 'uploads/' });
 
@@ -23,5 +27,6 @@ const upload = multer({ storage: storage });
 router.post('/submit', upload.array('file', 3), submitCase);
 // router.post('/submit', upload.array('originalname', 3), submitCase);
 router.get('/caselist', caseList);
+router.get('/:id', caseDetail);
 
 module.exports = router;
