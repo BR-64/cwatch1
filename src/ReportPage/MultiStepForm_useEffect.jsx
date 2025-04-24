@@ -21,7 +21,7 @@ const MultiStepForm = () => {
     district: '',
     subdistrict: '',
     reporter: '',
-    file: [],
+    file: '',
   });
 
   const handleChange = (e) => {
@@ -32,11 +32,25 @@ const MultiStepForm = () => {
   };
 
   const handleChangeFile = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.files[0],
-    }));
+    // setFormData((prev) => ({
+    //   ...prev,
+    //   [e.target.name]: e.target.files[0],
+    // }));
+
+    // upload multiple file
+    const numofFile = e.target.files.length;
+
+    for (let i = 0; i < numofFile; i++) {
+      setFormData((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.files[i],
+      }));
+    }
+
+    console.log(numofFile);
     console.log(e.target.files[0]);
+    console.log(e.target.files[1]);
+    console.log(formData);
   };
 
   const nextStep = () => setStep((prev) => prev + 1);

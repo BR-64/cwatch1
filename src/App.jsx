@@ -41,8 +41,8 @@ function App() {
           <Route path='/' element={<MultiStepForm />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/thank-you' element={<ThankYou />} />
-          <Route path='/admin' element={<AdminProfile />}></Route>
-          {/* <Route path='/admin' element={<AdminDashboardPage />}></Route> */}
+          {/* <Route path='/admin' element={<AdminProfile />}></Route> */}
+          <Route path='/admin' element={<AdminDashboardPage />}></Route>
         </Routes>
       </Router>
     </div>

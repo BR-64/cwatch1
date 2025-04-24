@@ -20,6 +20,7 @@ const AdminProfile = () => {
           }
         );
         setUsers(response.data);
+        console.log(setUsers);
       } catch (error) {
         setError('Error fetching user data.');
         console.error(error);
